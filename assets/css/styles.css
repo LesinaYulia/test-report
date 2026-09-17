@@ -390,6 +390,10 @@ a { color: inherit; text-decoration-color: rgba(53, 55, 53, .3); text-underline-
 .terms-list dd { margin: 0; color: var(--ink-soft); }
 .terms-note { font-style: italic; color: var(--ink-faint); }
 
+.rule-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 9px; }
+.rule-list li { padding-left: 0; }
+.rule-list b { color: var(--ink); font-weight: 600; }
+
 /* -------------------------------------------------- Бронирование --------- */
 .booking { background: var(--forest); color: var(--cream); }
 .booking .section-head p { color: rgba(252, 251, 247, .78); }
