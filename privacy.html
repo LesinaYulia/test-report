@@ -3,19 +3,19 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Политика обработки персональных данных — Своя Дача</title>
+<title>Политика конфиденциальности — Своя Дача</title>
 <meta name="robots" content="noindex, follow">
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600;700&display=swap">
 <link rel="stylesheet" href="assets/css/styles.css">
 <style>
-  .legal { padding: clamp(48px, 8vw, 88px) 0 96px; }
-  .legal h1 { margin-bottom: .3em; }
-  .legal p.updated { color: var(--ink-soft); margin-bottom: 2em; }
-  .legal h2 { font-size: 1.3rem; margin-top: 1.8em; }
-  .legal ol, .legal ul { padding-left: 1.3em; }
+  .legal { padding: calc(var(--header-h) + 40px) 0 96px; }
+  .legal .kicker { margin-bottom: 8px; }
+  .legal p.updated { color: var(--ink-faint); margin-bottom: 2.2em; font-size: .92rem; }
+  .legal h2 { font-size: 1.35rem; margin-top: 1.8em; font-family: var(--font-body); font-weight: 700; }
+  .legal ul { padding-left: 1.2em; color: var(--ink-soft); }
   .legal li { margin-bottom: .5em; }
   .legal a.back { display: inline-block; margin-bottom: 28px; }
 </style>
@@ -23,13 +23,13 @@
 <body>
 <a class="skip-link" href="#main">Перейти к содержимому</a>
 
-<header class="header">
+<header class="header" id="header">
   <div class="container header__inner">
     <a class="logo" href="index.html" aria-label="Своя Дача — на главную">
-      <svg class="logo__mark" width="34" height="34" viewBox="0 0 34 34" aria-hidden="true">
-        <path d="M17 4 4 15h3v14h8v-8h4v8h8V15h3L17 4Z" fill="currentColor"/>
+      <svg class="logo__mark icon" width="26" height="26" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M4 13 12 5l8 8M7 12v7h10v-7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="15.6" r="1.3" fill="currentColor"/>
       </svg>
-      <span class="logo__text">Своя&nbsp;Дача<small>Екатеринбург</small></span>
+      Своя Дача
     </a>
     <div class="header__actions">
       <a class="btn btn--outline btn--sm" href="index.html">На главную</a>
@@ -40,55 +40,55 @@
 <main id="main">
   <section class="legal">
     <div class="container container--narrow">
-      <a class="back" href="index.html">← Вернуться на сайт</a>
-      <h1>Политика обработки персональных данных</h1>
-      <p class="updated">Действует с 16 сентября 2026 года</p>
+      <a class="back link-cta" href="index.html">← Вернуться на сайт</a>
+      <p class="kicker">Документы</p>
+      <h1>Политика конфиденциальности</h1>
+      <p class="updated">Действует с 17 сентября 2026 года</p>
 
       <p>
-        Настоящая политика определяет порядок обработки персональных данных пользователей сайта
-        «Своя Дача» (далее — Сайт), которые оставляют заявку на бронирование через форму на Сайте
-        или обращаются по указанным на Сайте контактам.
+        Настоящая политика описывает, как обрабатываются персональные данные тех, кто
+        оставляет заявку через форму бронирования на сайте «Своя Дача» или пишет по
+        контактам, указанным на сайте.
       </p>
 
-      <h2>1. Какие данные мы собираем</h2>
+      <h2>Какие данные собираются</h2>
       <ul>
         <li>Имя;</li>
         <li>Номер телефона;</li>
-        <li>Данные, которые вы добровольно указываете в комментарии к заявке (даты, пожелания).</li>
+        <li>Даты и комментарий, которые вы добровольно указываете в форме.</li>
       </ul>
 
-      <h2>2. Для чего используются данные</h2>
+      <h2>Зачем они нужны</h2>
       <ul>
-        <li>Чтобы связаться с вами и подтвердить возможность бронирования на выбранные даты;</li>
-        <li>Чтобы уточнить детали заезда, состав гостей и дополнительные услуги;</li>
-        <li>Чтобы направить вам реквизиты для предоплаты, если бронирование подтверждено.</li>
+        <li>Чтобы связаться с вами и подтвердить свободные даты;</li>
+        <li>Чтобы уточнить состав гостей и детали заезда;</li>
+        <li>Чтобы направить условия бронирования, если даты подтверждены.</li>
       </ul>
 
-      <h2>3. Как передаются данные</h2>
+      <h2>Как данные передаются</h2>
       <p>
-        Данные из формы бронирования передаются в мессенджер (WhatsApp/Telegram) владельца Сайта
-        для оперативной обработки заявки. Данные не передаются третьим лицам и не используются
-        в рекламных целях без вашего согласия.
+        Заявка из формы попадает в мессенджер (WhatsApp/Telegram) владельца дома для
+        обработки. Данные не передаются третьим лицам и не используются в рекламных
+        целях без отдельного согласия.
       </p>
 
-      <h2>4. Хранение и удаление</h2>
+      <h2>Хранение и удаление</h2>
       <p>
-        Данные хранятся в переписке мессенджера до момента исполнения заявки и в течение
-        разумного срока после — для истории обращений. Вы можете в любой момент запросить
-        удаление своих данных, написав на контакты, указанные в подвале Сайта.
+        Данные хранятся в переписке до исполнения заявки и некоторое время после — для
+        истории обращений. Вы можете попросить удалить свои данные, написав на контакты
+        в подвале сайта.
       </p>
 
-      <h2>5. Согласие</h2>
+      <h2>Согласие</h2>
       <p>
-        Отправляя форму на Сайте, вы подтверждаете, что ознакомлены с настоящей политикой
-        и даёте согласие на обработку указанных персональных данных в целях, перечисленных выше.
+        Отправляя форму на сайте, вы подтверждаете, что ознакомлены с этой политикой, и
+        даёте согласие на обработку указанных данных в перечисленных выше целях.
       </p>
 
-      <h2>6. Контакты</h2>
+      <h2>Контакты</h2>
       <p>
-        По вопросам обработки персональных данных пишите на
-        <a href="#" data-contact="email-link"><span data-contact="email-text">hello@svoyadacha-ekb.ru</span></a>
-        или по телефону <span data-contact="phone-text">+7 (900) 000-00-00</span>.
+        По вопросам обработки данных — <a href="#" data-contact="email-link"><span data-contact="email-text">hello@svoyadacha-ekb.ru</span></a>
+        или <span data-contact="phone-text">+7 (900) 000-00-00</span>.
       </p>
     </div>
   </section>
@@ -96,7 +96,7 @@
 
 <footer class="footer">
   <div class="container footer__bottom">
-    <p>© <span id="year">2026</span> Своя Дача. Все права защищены.</p>
+    <p>© <span id="year">2026</span> Своя Дача</p>
     <p><a href="index.html">На главную</a></p>
   </div>
 </footer>

@@ -1,14 +1,16 @@
 /**
- * Своя Дача — интерактив лендинга:
- * подстановка контактов, мобильное меню, липкая шапка, появление блоков
- * при прокрутке, галерея-лайтбокс и валидация формы бронирования.
+ * Своя Дача — интерактив:
+ * подстановка контактов, мобильное меню, липкая шапка, лёгкий параллакс
+ * на hero-фото, появление блоков при прокрутке, sticky-CTA на мобильных
+ * и форма бронирования.
  */
 (function () {
   "use strict";
 
   var c = window.SITE_CONTACTS || {};
+  var prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  /* ---------- Подстановка контактов во все шаблонные места ---------- */
+  /* ---------- Подстановка контактов ---------- */
   function applyContacts() {
     document.querySelectorAll('[data-contact="phone-link"]').forEach(function (el) {
       el.setAttribute("href", c.phoneHref || "tel:");
@@ -34,9 +36,6 @@
     document.querySelectorAll('[data-contact="address"]').forEach(function (el) {
       el.textContent = c.address || el.textContent;
     });
-    document.querySelectorAll('[data-contact="map-link"]').forEach(function (el) {
-      el.setAttribute("href", c.map || "#");
-    });
   }
 
   /* ---------- Мобильное меню ---------- */
@@ -48,11 +47,13 @@
     function closeNav() {
       nav.classList.remove("is-open");
       burger.setAttribute("aria-expanded", "false");
+      document.body.style.overflow = "";
     }
 
     burger.addEventListener("click", function () {
       var open = nav.classList.toggle("is-open");
       burger.setAttribute("aria-expanded", open ? "true" : "false");
+      document.body.style.overflow = open ? "hidden" : "";
     });
 
     nav.querySelectorAll("a").forEach(function (link) {
@@ -64,15 +65,49 @@
     });
   }
 
-  /* ---------- Липкая шапка при прокрутке ---------- */
+  /* ---------- Липкая шапка ---------- */
   function initStickyHeader() {
     var header = document.getElementById("header");
     if (!header) return;
+
+    // На страницах без hero (политика, условия, 404) шапка не бывает
+    // «прозрачной поверх фото» — сразу показываем её в контрастном виде.
+    if (!document.getElementById("hero")) {
+      header.classList.add("is-stuck");
+      return;
+    }
+
     var toggle = function () {
-      header.classList.toggle("is-stuck", window.scrollY > 8);
+      header.classList.toggle("is-stuck", window.scrollY > 40);
     };
     toggle();
     window.addEventListener("scroll", toggle, { passive: true });
+  }
+
+  /* ---------- Лёгкий параллакс на hero-фото ---------- */
+  function initParallax() {
+    var media = document.getElementById("heroMedia");
+    if (!media || prefersReducedMotion) return;
+    var ticking = false;
+
+    function update() {
+      var y = window.scrollY;
+      // Двигаем фон чуть медленнее прокрутки — едва заметный, спокойный эффект.
+      var offset = Math.min(y * 0.12, 60);
+      media.style.transform = "translate3d(0," + offset + "px,0)";
+      ticking = false;
+    }
+
+    window.addEventListener(
+      "scroll",
+      function () {
+        if (!ticking) {
+          window.requestAnimationFrame(update);
+          ticking = true;
+        }
+      },
+      { passive: true }
+    );
   }
 
   /* ---------- Появление блоков при прокрутке ---------- */
@@ -94,65 +129,43 @@
           }
         });
       },
-      { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
+      { threshold: 0.12, rootMargin: "0px 0px -60px 0px" }
     );
 
     items.forEach(function (el) { io.observe(el); });
   }
 
-  /* ---------- Галерея / лайтбокс ---------- */
-  function initGallery() {
-    var grid = document.getElementById("galleryGrid");
-    var lightbox = document.getElementById("lightbox");
-    if (!grid || !lightbox) return;
+  /* ---------- Sticky-CTA на мобильных ---------- */
+  function initStickyCta() {
+    var bar = document.getElementById("stickyCta");
+    var hero = document.getElementById("hero");
+    var booking = document.getElementById("booking");
+    if (!bar || !hero || !booking) return;
 
-    var img = document.getElementById("lightboxImg");
-    var closeBtn = lightbox.querySelector(".lightbox__close");
-    var prevBtn = lightbox.querySelector(".lightbox__nav--prev");
-    var nextBtn = lightbox.querySelector(".lightbox__nav--next");
-    var items = Array.prototype.slice.call(grid.querySelectorAll(".gallery__item"));
-    var current = 0;
-    var lastFocused = null;
+    var pastHero = false;
+    var inBooking = false;
 
-    function show(index) {
-      current = (index + items.length) % items.length;
-      var el = items[current];
-      img.src = el.getAttribute("data-full") || el.querySelector("img").src;
-      img.alt = el.querySelector("img").alt || "";
+    function sync() {
+      bar.classList.toggle("is-visible", pastHero && !inBooking);
     }
 
-    function open(index) {
-      lastFocused = document.activeElement;
-      show(index);
-      lightbox.hidden = false;
-      document.body.style.overflow = "hidden";
-      closeBtn.focus();
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (entry) { pastHero = !entry.isIntersecting; });
+          sync();
+        },
+        { rootMargin: "-70% 0px 0px 0px" }
+      ).observe(hero);
+
+      new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (entry) { inBooking = entry.isIntersecting; });
+          sync();
+        },
+        { threshold: 0.15 }
+      ).observe(booking);
     }
-
-    function close() {
-      lightbox.hidden = true;
-      document.body.style.overflow = "";
-      if (lastFocused) lastFocused.focus();
-    }
-
-    items.forEach(function (el, index) {
-      el.addEventListener("click", function () { open(index); });
-    });
-
-    closeBtn.addEventListener("click", close);
-    prevBtn.addEventListener("click", function () { show(current - 1); });
-    nextBtn.addEventListener("click", function () { show(current + 1); });
-
-    lightbox.addEventListener("click", function (e) {
-      if (e.target === lightbox) close();
-    });
-
-    document.addEventListener("keydown", function (e) {
-      if (lightbox.hidden) return;
-      if (e.key === "Escape") close();
-      if (e.key === "ArrowLeft") show(current - 1);
-      if (e.key === "ArrowRight") show(current + 1);
-    });
   }
 
   /* ---------- Форма бронирования ---------- */
@@ -215,15 +228,13 @@
       }
 
       var data = new FormData(form);
-      var extras = data.getAll("extras").join(", ") || "не выбрано";
       var summary =
         "Заявка с сайта «Своя Дача»\n" +
         "Имя: " + data.get("name") + "\n" +
         "Телефон: " + data.get("phone") + "\n" +
         "Заезд: " + (data.get("checkin") || "не указан") + "\n" +
-        "Суток: " + data.get("nights") + "\n" +
+        "Выезд: " + (data.get("checkout") || "не указан") + "\n" +
         "Гостей: " + (data.get("guests") || "не указано") + "\n" +
-        "Дополнительно: " + extras + "\n" +
         "Комментарий: " + (data.get("comment") || "—");
 
       function done(ok, message) {
@@ -232,30 +243,24 @@
         if (ok) form.reset();
       }
 
+      function fallbackToWhatsApp() {
+        // Без настроенного formEndpoint заявка уходит через WhatsApp,
+        // чтобы гарантированно дойти до владельца.
+        var waBase = (c.whatsapp || "https://wa.me/79000000000").split("?")[0];
+        var waLink = waBase + "?text=" + encodeURIComponent(summary);
+        window.open(waLink, "_blank", "noopener");
+        done(true, "Спасибо! Открываем WhatsApp, чтобы отправить заявку — нажмите «Отправить».");
+      }
+
       if (c.formEndpoint) {
-        fetch(c.formEndpoint, {
-          method: "POST",
-          headers: { Accept: "application/json" },
-          body: data
-        })
+        fetch(c.formEndpoint, { method: "POST", headers: { Accept: "application/json" }, body: data })
           .then(function (res) {
             if (!res.ok) throw new Error("bad status");
             done(true, "Спасибо! Заявка отправлена, мы свяжемся с вами в ближайшее время.");
           })
-          .catch(function () {
-            fallbackToWhatsApp();
-          });
+          .catch(fallbackToWhatsApp);
       } else {
         fallbackToWhatsApp();
-      }
-
-      function fallbackToWhatsApp() {
-        // Без настроенного formEndpoint отправляем заявку через WhatsApp,
-        // чтобы она гарантированно дошла владельцу.
-        var waBase = (c.whatsapp || "https://wa.me/79000000000").split("?")[0];
-        var waLink = waBase + "?text=" + encodeURIComponent(summary);
-        window.open(waLink, "_blank", "noopener");
-        done(true, "Спасибо! Открываем WhatsApp, чтобы отправить заявку — просто нажмите «Отправить».");
       }
     });
   }
@@ -269,8 +274,9 @@
     applyContacts();
     initNav();
     initStickyHeader();
+    initParallax();
     initReveal();
-    initGallery();
+    initStickyCta();
     initForm();
     initYear();
   });

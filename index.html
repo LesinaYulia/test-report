@@ -3,15 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Своя Дача — аренда дачи с баней под Екатеринбургом</title>
-<meta name="description" content="Своя Дача (ЕКБ) — уютный дом с баней и чаном в аренду посуточно недалеко от Екатеринбурга. Компании до 12 человек, мангал, беседка, парковка. Бронирование по телефону и в WhatsApp.">
-<meta name="theme-color" content="#3d6b4a">
+<title>Своя Дача — дом для спокойных выходных под Екатеринбургом</title>
+<meta name="description" content="Своя Дача — загородный дом на 60 м² в пригороде Екатеринбурга. До 6 гостей, 2 спальни, полноценная кухня, баня, мангал и костровая зона на закрытой территории. Всё уже есть — осталось приехать.">
+<meta name="theme-color" content="#3F5142">
 <link rel="canonical" href="https://svoyadacha-ekb.ru/">
 
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="Своя Дача ЕКБ">
-<meta property="og:title" content="Своя Дача — аренда дачи с баней под Екатеринбургом">
-<meta property="og:description" content="Дом с баней и чаном посуточно. Компании до 12 человек, мангал, беседка, парковка. Бронируйте на выходные заранее.">
+<meta property="og:site_name" content="Своя Дача">
+<meta property="og:title" content="Своя Дача — дом, куда приезжают, чтобы никуда не спешить">
+<meta property="og:description" content="Загородный дом на 60 м² под Екатеринбургом. До 6 гостей, баня, мангал, костровая зона, закрытая территория.">
 <meta property="og:url" content="https://svoyadacha-ekb.ru/">
 <meta property="og:image" content="https://svoyadacha-ekb.ru/assets/img/og-cover.svg">
 <meta property="og:locale" content="ru_RU">
@@ -21,37 +21,65 @@
 <link rel="apple-touch-icon" href="assets/img/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600;700&display=swap">
 <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
 <a class="skip-link" href="#main">Перейти к содержимому</a>
 
+<!-- Общий SVG-фильтр «зерно» для плейсхолдеров фотографий и спрайт иконок -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <filter id="grain" x="-20%" y="-20%" width="140%" height="140%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch" result="noise"/>
+    <feColorMatrix in="noise" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.5 0"/>
+  </filter>
+  <symbol id="icon-mark" viewBox="0 0 24 24"><path d="M4 13 12 5l8 8M7 12v7h10v-7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="15.6" r="1.3" fill="currentColor"/></symbol>
+  <symbol id="icon-area" viewBox="0 0 24 24"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="icon-guests" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M3.5 19c.6-3.3 2.8-5 5.5-5s4.9 1.7 5.5 5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="17" cy="9" r="2.3" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M15.2 13.3c2.2.2 3.7 1.7 4.2 4.2" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
+  <symbol id="icon-bed" viewBox="0 0 24 24"><path d="M3 19v-9a2 2 0 0 1 2-2h5v5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 15h18v4M14 13h5a2 2 0 0 1 2 2v0" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="7" cy="10.5" r="1.4" fill="none" stroke="currentColor" stroke-width="1.4"/></symbol>
+  <symbol id="icon-kitchen" viewBox="0 0 24 24"><path d="M6 3v7a2 2 0 0 0 4 0V3M8 10v11" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 3c-1.7 0-3 1.7-3 4s1.3 4 3 4v10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="icon-wifi" viewBox="0 0 24 24"><path d="M4 9c4.4-4 11.6-4 16 0M7 12.5c2.8-2.4 6.5-2.4 9.3 0M10 16c1.2-1 2.8-1 4 0" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="12" cy="19" r="1.1" fill="currentColor"/></symbol>
+  <symbol id="icon-ac" viewBox="0 0 24 24"><path d="M4 8h16M4 8c0-2.5 1-4 4-4M20 8c0-2.5-1-4-4-4M8 12l-2.5 2M8 12l-2.5-2M8 12v4M16 12l2.5 2M16 12l2.5-2M16 12v4M12 12v7" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="icon-steam" viewBox="0 0 24 24"><path d="M9 21c-1.2-1.4-1.2-2.6 0-4s1.2-2.6 0-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M15 21c-1.2-1.4-1.2-2.6 0-4s1.2-2.6 0-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M12 15c-1.2-1.6-1.2-3 0-4.6s1.2-3 0-4.6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
+  <symbol id="icon-flame" viewBox="0 0 24 24"><path d="M12 3c1 3-3 4-3 7.5A3 3 0 0 0 12 14a2.4 2.4 0 0 0 2.4-2.6c1.4 1 2.1 2.4 2.1 3.9A4.5 4.5 0 0 1 12 20a5 5 0 0 1-5-5c0-4 3-5 3.2-8.6.7.4 1.5 1.2 1.8 2.6Z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></symbol>
+  <symbol id="icon-bonfire" viewBox="0 0 24 24"><path d="M4 18l6-3 6 3M4 18l6 3 6-3" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 3c.8 2.4-2 3.3-2 5.8a2.2 2.2 0 0 0 4 1.3c.9.9 1.3 1.8 1.3 2.9a3.3 3.3 0 0 1-6.6 0c0-3 2.2-3.8 2.4-6.7.4.3.8.8.9 1.3Z" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></symbol>
+  <symbol id="icon-fence" viewBox="0 0 24 24"><path d="M12 3l3 3.2V20M12 3 9 6.2V20M6 9v11M18 9v11M3 13h18M3 17h18" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="icon-check" viewBox="0 0 24 24"><path d="M5 12.5 9.5 17 19 7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="icon-quote" viewBox="0 0 24 16"><path d="M0 16V8.7C0 3.7 2.9.6 8 0v3.4C5.3 4 4.3 5.6 4.3 8h3.4v8H0Zm12.3 0V8.7c0-5 2.9-8.1 8-8.7v3.4c-2.7.6-3.7 2.2-3.7 4.6h3.4v8h-7.7Z" fill="currentColor"/></symbol>
+  <symbol id="icon-camera" viewBox="0 0 24 24"><path d="M4 8h3l1.5-2h7L17 8h3a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1Z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><circle cx="12" cy="13.5" r="3.2" fill="none" stroke="currentColor" stroke-width="1.4"/></symbol>
+  <symbol id="icon-arrow" viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="icon-coffee" viewBox="0 0 24 24"><path d="M4 9h13v6a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4V9Z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><path d="M17 10h1.5a2.5 2.5 0 0 1 0 5H17M7 6c0-1 .8-1.3.8-2.2M11 6c0-1 .8-1.3.8-2.2" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></symbol>
+  <symbol id="icon-towel" viewBox="0 0 24 24"><path d="M5 3h13v13a5 5 0 0 1-5 5H8v-6h10" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><path d="M9 3v13" fill="none" stroke="currentColor" stroke-width="1.4"/></symbol>
+  <symbol id="icon-dish" viewBox="0 0 24 24"><ellipse cx="12" cy="12" rx="9" ry="9" fill="none" stroke="currentColor" stroke-width="1.4"/><ellipse cx="12" cy="12" rx="4.2" ry="4.2" fill="none" stroke="currentColor" stroke-width="1.2"/></symbol>
+  <symbol id="icon-spice" viewBox="0 0 24 24"><path d="M8 3h8l-1 4H9L8 3Z" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/><path d="M7 7h10l-1.2 13.2a1 1 0 0 1-1 .8H9.2a1 1 0 0 1-1-.8L7 7Z" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/><path d="M9 11h6M9 14h6" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/></symbol>
+  <symbol id="icon-dryer" viewBox="0 0 24 24"><path d="M5 20c0-6 3-7.5 3-11a3 3 0 1 1 6 0c0 1-.3 1.8-.8 2.6" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M9 20h9" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></symbol>
+  <symbol id="icon-firstaid" viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M9 5h6v3H9z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><path d="M12 11v6M9 14h6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></symbol>
+  <symbol id="icon-dishwasher" viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.4"/><circle cx="12" cy="13" r="4.4" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M12 13v-2M12 13l1.6 1.2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><path d="M7 6.5h.01" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+  <symbol id="icon-pin" viewBox="0 0 24 24"><path d="M12 21s7-6.3 7-11.5A7 7 0 0 0 5 9.5C5 14.7 12 21 12 21Z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><circle cx="12" cy="9.5" r="2.3" fill="none" stroke="currentColor" stroke-width="1.3"/></symbol>
+</svg>
+
 <header class="header" id="header">
   <div class="container header__inner">
     <a class="logo" href="#hero" aria-label="Своя Дача — на главную">
-      <svg class="logo__mark" width="34" height="34" viewBox="0 0 34 34" aria-hidden="true">
-        <path d="M17 4 4 15h3v14h8v-8h4v8h8V15h3L17 4Z" fill="currentColor"/>
-      </svg>
-      <span class="logo__text">Своя&nbsp;Дача<small>Екатеринбург</small></span>
+      <svg class="logo__mark icon" width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-mark"/></svg>
+      Своя Дача
     </a>
 
     <nav class="nav" id="nav" aria-label="Основная навигация">
       <ul class="nav__list">
-        <li><a href="#about">О даче</a></li>
-        <li><a href="#amenities">Что включено</a></li>
-        <li><a href="#gallery">Фото</a></li>
-        <li><a href="#prices">Цены</a></li>
-        <li><a href="#faq">Вопросы</a></li>
+        <li><a href="#dom">Дом</a></li>
+        <li><a href="#territory">Территория</a></li>
+        <li><a href="#banya">Баня</a></li>
+        <li><a href="#terms">Условия</a></li>
         <li><a href="#contacts">Контакты</a></li>
       </ul>
+      <div class="header__actions">
+        <a class="btn btn--on-dark btn--sm" href="#booking">Выбрать даты</a>
+      </div>
     </nav>
 
     <div class="header__actions">
-      <a class="header__phone" href="tel:+79000000000" data-contact="phone-link">
-        <span data-contact="phone-text">+7 (900) 000-00-00</span>
-      </a>
-      <a class="btn btn--primary btn--sm" href="#booking">Забронировать</a>
+      <a class="btn btn--ghost-dark btn--sm" href="#booking">Выбрать даты</a>
       <button class="burger" id="burger" type="button" aria-label="Меню" aria-expanded="false" aria-controls="nav">
         <span></span><span></span><span></span>
       </button>
@@ -61,409 +89,410 @@
 
 <main id="main">
 
+  <!-- 1. HERO ================================================================ -->
   <section class="hero" id="hero">
-    <div class="hero__media">
-      <img src="assets/img/hero.svg" alt="Дачный дом с баней и террасой среди сосен" width="1600" height="900" fetchpriority="high">
+    <div class="hero__media" id="heroMedia">
+      <div class="photo photo--forest ratio-16-9" style="width:100%;height:100%"></div>
     </div>
-    <div class="container hero__inner">
-      <p class="hero__eyebrow">30 км от Екатеринбурга · лес и озеро рядом</p>
-      <h1 class="hero__title">Своя дача на выходные — с баней, чаном и тишиной</h1>
-      <p class="hero__lead">
-        Сдаём уютный дом посуточно: компании до 12 человек, топим баню к вашему приезду,
-        мангальная зона, беседка и парковка на 5 машин. Приезжайте отдыхать, остальное мы берём на себя.
-      </p>
-      <ul class="hero__facts">
-        <li><strong>до 12</strong><span>гостей</span></li>
-        <li><strong>2</strong><span>спальни + гостиная</span></li>
-        <li><strong>от 12 000 ₽</strong><span>за сутки</span></li>
-      </ul>
+    <div class="container hero__inner reveal">
+      <p class="hero__kicker">Своя Дача</p>
+      <h1 class="hero__title">Дом, куда приезжают,<br>чтобы никуда не спешить.</h1>
+      <p class="hero__lead">60 м² в пригороде Екатеринбурга. До шести гостей, тишина и всё, что нужно для выходных — уже на месте.</p>
       <div class="hero__cta">
-        <a class="btn btn--primary" href="#booking">Проверить свободные даты</a>
-        <a class="btn btn--ghost" href="#" data-contact="whatsapp-link">Написать в WhatsApp</a>
+        <a class="btn btn--on-dark" href="#booking">Выбрать даты</a>
+        <a class="link-cta link-cta--on-dark" href="#dom">
+          Посмотреть дом
+          <svg class="icon" aria-hidden="true"><use href="#icon-arrow"/></svg>
+        </a>
       </div>
-      <p class="hero__note">Отвечаем с 9:00 до 22:00, бронь подтверждаем в течение 15 минут.</p>
+    </div>
+    <div class="hero__scroll-hint" aria-hidden="true"><span class="line"></span>Листайте</div>
+  </section>
+
+  <!-- 2. ЭМОЦИОНАЛЬНЫЙ БЛОК ================================================== -->
+  <section class="section" id="ritual">
+    <div class="container ritual">
+      <div class="reveal">
+        <p class="kicker">Как проходят эти выходные</p>
+        <div class="ritual__lines">
+          <p class="ritual__line"><em>Пятница</em> приехать.</p>
+          <p class="ritual__line"><em>Суббота</em> никуда не спешить.</p>
+          <p class="ritual__line"><em>Воскресенье</em> ещё немного остаться.</p>
+        </div>
+        <p class="ritual__note">Дальше — по своему сценарию.</p>
+      </div>
+      <div class="ritual__media reveal">
+        <div class="photo-frame ratio-4-5">
+          <div class="photo photo--sand"></div>
+          <span class="photo-frame__label"><svg class="icon" aria-hidden="true"><use href="#icon-camera"/></svg>Терраса вечером</span>
+        </div>
+      </div>
     </div>
   </section>
 
-  <section class="section" id="about">
-    <div class="container about">
-      <div class="about__text reveal">
-        <p class="eyebrow">О даче</p>
-        <h2>Дом, куда хочется возвращаться</h2>
-        <p>
-          «Своя Дача» — это не гостиница, а настоящий дачный дом, который мы держим для гостей
-          в том же состоянии, в каком любим сами: тёплый, чистый и без лишних правил.
-          Участок 12 соток огорожен, соседей не видно, вокруг сосны.
-        </p>
-        <p>
-          Сюда едут семьями, компаниями друзей, на дни рождения, девичники и небольшие
-          корпоративы. Летом — мангал, гамак и чан под открытым небом, зимой — тёплые полы,
-          баня и снег до самого леса.
-        </p>
-        <ul class="ticks">
-          <li>Заезд с 15:00, выезд до 12:00 — сутки полноценные, а не «до обеда»</li>
-          <li>Баня протоплена к вашему приезду, дрова и веники включены</li>
-          <li>Постельное бельё, полотенца и посуда на всех гостей</li>
-          <li>Можно с детьми и питомцами — предупредите заранее</li>
-        </ul>
-      </div>
-      <figure class="about__media reveal">
-        <img src="assets/img/about.svg" alt="Терраса дачного дома с накрытым столом" width="800" height="900" loading="lazy">
-        <figcaption>Терраса с видом на сосны — здесь проходит большая часть вечеров</figcaption>
-      </figure>
-    </div>
-  </section>
-
-  <section class="section section--muted" id="amenities">
+  <!-- 3. ДОМ ================================================================= -->
+  <section class="section section--white" id="dom">
     <div class="container">
-      <div class="section__head reveal">
-        <p class="eyebrow">Что включено</p>
-        <h2>Всё для отдыха уже на месте</h2>
-        <p class="section__lead">Ничего докупать и привозить не нужно — кроме продуктов и хорошего настроения.</p>
+      <div class="house-copy reveal">
+        <p class="kicker">Дом</p>
+        <h2>Всё уже есть</h2>
+        <p>Чтобы приехать на выходные и не думать о мелочах.</p>
       </div>
-      <ul class="cards cards--amenities">
-        <li class="card reveal">
-          <span class="card__icon" aria-hidden="true">🔥</span>
-          <h3>Баня на дровах</h3>
-          <p>Парная, комната отдыха, купель. Топим заранее — паритесь сразу после заезда.</p>
-        </li>
-        <li class="card reveal">
-          <span class="card__icon" aria-hidden="true">♨️</span>
-          <h3>Банный чан</h3>
-          <p>Чан на 6 человек под открытым небом с подогревом на дровах и травяными сборами.</p>
-        </li>
-        <li class="card reveal">
-          <span class="card__icon" aria-hidden="true">🍖</span>
-          <h3>Мангальная зона</h3>
-          <p>Мангал, казан, шампуры, решётка и уголь. Рядом крытая беседка на 12 мест.</p>
-        </li>
-        <li class="card reveal">
-          <span class="card__icon" aria-hidden="true">🛏️</span>
-          <h3>Спальные места</h3>
-          <p>2 спальни и гостиная-трансформер: до 12 гостей с комплектом белья на каждого.</p>
-        </li>
-        <li class="card reveal">
-          <span class="card__icon" aria-hidden="true">🍳</span>
-          <h3>Кухня</h3>
-          <p>Плита, духовка, холодильник, чайник, кофеварка, вся посуда и техника.</p>
-        </li>
-        <li class="card reveal">
-          <span class="card__icon" aria-hidden="true">📶</span>
-          <h3>Связь и развлечения</h3>
-          <p>Wi-Fi, ТВ с колонкой, настольные игры, гамак, качели и зона для детей.</p>
-        </li>
-        <li class="card reveal">
-          <span class="card__icon" aria-hidden="true">🚗</span>
-          <h3>Парковка</h3>
-          <p>Закрытый двор и место под 5 машин. Зимой дорога чистится трактором.</p>
-        </li>
-        <li class="card reveal">
-          <span class="card__icon" aria-hidden="true">🌲</span>
-          <h3>Природа рядом</h3>
-          <p>Лес начинается за забором, до озера 10 минут пешком, грибы и лыжня по сезону.</p>
-        </li>
+
+      <div class="editorial-grid reveal">
+        <div class="photo-frame ratio-4-3">
+          <div class="photo photo--sand"></div>
+          <span class="photo-frame__label"><svg class="icon" aria-hidden="true"><use href="#icon-camera"/></svg>Кухня-гостиная</span>
+        </div>
+        <div class="photo-frame ratio-1-1">
+          <div class="photo photo--sage"></div>
+          <span class="photo-frame__label"><svg class="icon" aria-hidden="true"><use href="#icon-camera"/></svg>Гостиная зона</span>
+        </div>
+        <div class="photo-frame ratio-1-1">
+          <div class="photo photo--wood"></div>
+          <span class="photo-frame__label"><svg class="icon" aria-hidden="true"><use href="#icon-camera"/></svg>Спальня</span>
+        </div>
+        <div class="photo-frame ratio-4-3">
+          <div class="photo photo--cream"></div>
+          <span class="photo-frame__label"><svg class="icon" aria-hidden="true"><use href="#icon-camera"/></svg>Спальня № 2</span>
+        </div>
+        <div class="photo-frame ratio-4-3">
+          <div class="photo photo--sand"></div>
+          <span class="photo-frame__label"><svg class="icon" aria-hidden="true"><use href="#icon-camera"/></svg>Ванная</span>
+        </div>
+        <div class="photo-frame ratio-21-9">
+          <div class="photo photo--forest"></div>
+          <span class="photo-frame__label"><svg class="icon" aria-hidden="true"><use href="#icon-camera"/></svg>Детали интерьера</span>
+        </div>
+      </div>
+
+      <p style="margin-top:32px">
+        <a class="link-cta" href="#booking">Проверить свободные даты
+          <svg class="icon" aria-hidden="true"><use href="#icon-arrow"/></svg>
+        </a>
+      </p>
+    </div>
+  </section>
+
+  <!-- 4. ЧТО ЕСТЬ В ДОМЕ ====================================================== -->
+  <section class="section section--tight" id="facts">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="kicker">Коротко о доме</p>
+      </div>
+      <ul class="facts-grid reveal">
+        <li><svg class="icon" aria-hidden="true"><use href="#icon-area"/></svg><span>60 м²</span></li>
+        <li><svg class="icon" aria-hidden="true"><use href="#icon-guests"/></svg><span>до 6 гостей</span></li>
+        <li><svg class="icon" aria-hidden="true"><use href="#icon-bed"/></svg><span>2 спальни</span></li>
+        <li><svg class="icon" aria-hidden="true"><use href="#icon-kitchen"/></svg><span>полноценная кухня</span></li>
+        <li><svg class="icon" aria-hidden="true"><use href="#icon-wifi"/></svg><span>Wi-Fi</span></li>
+        <li><svg class="icon" aria-hidden="true"><use href="#icon-ac"/></svg><span>кондиционер</span></li>
+        <li><svg class="icon" aria-hidden="true"><use href="#icon-steam"/></svg><span>баня</span></li>
+        <li><svg class="icon" aria-hidden="true"><use href="#icon-flame"/></svg><span>мангал</span></li>
+        <li><svg class="icon" aria-hidden="true"><use href="#icon-bonfire"/></svg><span>костровая зона</span></li>
+        <li><svg class="icon" aria-hidden="true"><use href="#icon-fence"/></svg><span>закрытая территория</span></li>
       </ul>
     </div>
   </section>
 
-  <section class="section" id="gallery">
+  <!-- 5. СЦЕНАРИИ ОТДЫХА ====================================================== -->
+  <section class="section section--white" id="scenarios">
     <div class="container">
-      <div class="section__head reveal">
-        <p class="eyebrow">Фотографии</p>
-        <h2>Как всё выглядит на самом деле</h2>
-        <p class="section__lead">
-          Свежие фото и видео каждую неделю публикуем в
-          <a href="#" data-contact="instagram-link" rel="noopener">Instagram</a>.
-        </p>
-      </div>
-      <ul class="gallery" id="galleryGrid">
-        <li><button type="button" class="gallery__item reveal" data-full="assets/img/gallery-1.svg">
-          <img src="assets/img/gallery-1.svg" alt="Фасад дома вечером" loading="lazy" width="800" height="600"></button></li>
-        <li><button type="button" class="gallery__item reveal" data-full="assets/img/gallery-2.svg">
-          <img src="assets/img/gallery-2.svg" alt="Гостиная с камином" loading="lazy" width="800" height="600"></button></li>
-        <li><button type="button" class="gallery__item reveal" data-full="assets/img/gallery-3.svg">
-          <img src="assets/img/gallery-3.svg" alt="Баня и парная" loading="lazy" width="800" height="600"></button></li>
-        <li><button type="button" class="gallery__item reveal" data-full="assets/img/gallery-4.svg">
-          <img src="assets/img/gallery-4.svg" alt="Банный чан во дворе" loading="lazy" width="800" height="600"></button></li>
-        <li><button type="button" class="gallery__item reveal" data-full="assets/img/gallery-5.svg">
-          <img src="assets/img/gallery-5.svg" alt="Беседка и мангальная зона" loading="lazy" width="800" height="600"></button></li>
-        <li><button type="button" class="gallery__item reveal" data-full="assets/img/gallery-6.svg">
-          <img src="assets/img/gallery-6.svg" alt="Спальня с большой кроватью" loading="lazy" width="800" height="600"></button></li>
-      </ul>
-    </div>
-  </section>
-
-  <section class="section section--muted" id="prices">
-    <div class="container">
-      <div class="section__head reveal">
-        <p class="eyebrow">Цены</p>
-        <h2>Стоимость аренды</h2>
-        <p class="section__lead">Цена за весь дом целиком, до 12 гостей. Баня и чан оплачиваются отдельно.</p>
+      <div class="section-head reveal">
+        <p class="kicker">Сценарии</p>
+        <h2>Несколько поводов приехать</h2>
       </div>
 
-      <ul class="cards cards--prices">
-        <li class="price reveal">
-          <h3>Будни</h3>
-          <p class="price__value">12 000 ₽<span>/ сутки</span></p>
-          <p class="price__note">Пн–чт, заезд 15:00, выезд 12:00</p>
-          <ul class="ticks ticks--sm">
-            <li>Дом целиком до 12 гостей</li>
-            <li>Бельё, полотенца, посуда</li>
-            <li>Беседка и мангал</li>
-          </ul>
-          <a class="btn btn--outline btn--block" href="#booking">Забронировать</a>
-        </li>
-        <li class="price price--featured reveal">
-          <span class="price__badge">Чаще всего берут</span>
-          <h3>Выходные</h3>
-          <p class="price__value">18 000 ₽<span>/ сутки</span></p>
-          <p class="price__note">Пт–вс, минимальная бронь — 1 сутки</p>
-          <ul class="ticks ticks--sm">
-            <li>Всё из тарифа «Будни»</li>
-            <li>Поздний выезд до 14:00 по согласованию</li>
-            <li>Ранняя растопка бани к заезду</li>
-          </ul>
-          <a class="btn btn--primary btn--block" href="#booking">Забронировать</a>
-        </li>
-        <li class="price reveal">
-          <h3>Праздники</h3>
-          <p class="price__value">от 22 000 ₽<span>/ сутки</span></p>
-          <p class="price__note">Новый год, майские, длинные выходные</p>
-          <ul class="ticks ticks--sm">
-            <li>Бронь от 2 суток</li>
-            <li>Предоплата 50%</li>
-            <li>Праздничное оформление по запросу</li>
-          </ul>
-          <a class="btn btn--outline btn--block" href="#booking">Уточнить даты</a>
-        </li>
-      </ul>
-
-      <div class="extras reveal">
-        <h3>Дополнительно</h3>
-        <ul class="extras__list">
-          <li><span>Баня (топка + дрова)</span><b>3 000 ₽</b></li>
-          <li><span>Банный чан</span><b>4 000 ₽</b></li>
-          <li><span>Уголь и розжиг</span><b>500 ₽</b></li>
-          <li><span>Гость сверх 12 человек</span><b>1 000 ₽ / чел.</b></li>
-          <li><span>Питомец</span><b>500 ₽</b></li>
-          <li><span>Позднее выселение</span><b>по договорённости</b></li>
-        </ul>
-        <p class="extras__note">
-          Бронь закрепляется предоплатой 30%. Возвратный залог за сохранность имущества — 5 000 ₽,
-          возвращаем в день выезда.
-        </p>
+      <div class="scenario-grid">
+        <article class="scenario reveal">
+          <div class="scenario__media photo-frame ratio-4-5">
+            <div class="photo photo--sand"></div>
+            <span class="photo-frame__label"><svg class="icon" aria-hidden="true"><use href="#icon-camera"/></svg>Вдвоём</span>
+          </div>
+          <h3>Выходные вдвоём</h3>
+          <p>Без будильника и без плана на день. Только тишина и терраса.</p>
+        </article>
+        <article class="scenario reveal">
+          <div class="scenario__media photo-frame ratio-4-5">
+            <div class="photo photo--sage"></div>
+            <span class="photo-frame__label"><svg class="icon" aria-hidden="true"><use href="#icon-camera"/></svg>С детьми</span>
+          </div>
+          <h3>Семейные выходные</h3>
+          <p>Закрытая территория, где дети могут быть детьми, а взрослые — наконец выдохнуть.</p>
+        </article>
+        <article class="scenario reveal">
+          <div class="scenario__media photo-frame ratio-4-5">
+            <div class="photo photo--forest"></div>
+            <span class="photo-frame__label"><svg class="icon" aria-hidden="true"><use href="#icon-camera"/></svg>У костра</span>
+          </div>
+          <h3>Вечер у костра</h3>
+          <p>Костровая зона, плед и разговоры, которым не хватало места в будни.</p>
+        </article>
+        <article class="scenario reveal">
+          <div class="scenario__media photo-frame ratio-4-5">
+            <div class="photo photo--wood"></div>
+            <span class="photo-frame__label"><svg class="icon" aria-hidden="true"><use href="#icon-camera"/></svg>С друзьями</span>
+          </div>
+          <h3>Выходные с друзьями</h3>
+          <p>Компанией до четырёх взрослых — баня, мангал и разговоры, которые затянутся за полночь.</p>
+        </article>
       </div>
     </div>
   </section>
 
-  <section class="section" id="reviews">
+  <!-- 6. ТЕРРИТОРИЯ =========================================================== -->
+  <section class="section" id="territory">
     <div class="container">
-      <div class="section__head reveal">
-        <p class="eyebrow">Отзывы</p>
+      <div class="house-copy reveal">
+        <p class="kicker">Территория</p>
+        <h2>Двор, в котором есть место для всего</h2>
+        <p>Терраса, беседка, мангал, костровая зона — и лес рядом. 10 соток закрытой территории.</p>
+      </div>
+
+      <div class="territory-grid reveal">
+        <div class="photo-frame ratio-3-2">
+          <div class="photo photo--sage"></div>
+          <span class="photo-frame__label"><svg class="icon" aria-hidden="true"><use href="#icon-camera"/></svg>Терраса</span>
+        </div>
+        <div class="photo-frame ratio-1-1">
+          <div class="photo photo--sand"></div>
+          <span class="photo-frame__label"><svg class="icon" aria-hidden="true"><use href="#icon-camera"/></svg>Беседка</span>
+        </div>
+        <div class="photo-frame ratio-1-1">
+          <div class="photo photo--wood"></div>
+          <span class="photo-frame__label"><svg class="icon" aria-hidden="true"><use href="#icon-camera"/></svg>Мангальная зона</span>
+        </div>
+        <div class="photo-frame ratio-1-1">
+          <div class="photo photo--forest"></div>
+          <span class="photo-frame__label"><svg class="icon" aria-hidden="true"><use href="#icon-camera"/></svg>Костровая зона</span>
+        </div>
+        <div class="photo-frame ratio-1-1">
+          <div class="photo photo--cream"></div>
+          <span class="photo-frame__label"><svg class="icon" aria-hidden="true"><use href="#icon-camera"/></svg>Вокруг дома</span>
+        </div>
+      </div>
+
+      <p style="margin-top:32px">
+        <a class="link-cta" href="#booking">Проверить свободные даты
+          <svg class="icon" aria-hidden="true"><use href="#icon-arrow"/></svg>
+        </a>
+      </p>
+    </div>
+  </section>
+
+  <!-- 7. БАНЯ ================================================================= -->
+  <section class="section section--white" id="banya">
+    <div class="container banya">
+      <div class="banya__media reveal">
+        <div class="photo-frame ratio-4-5">
+          <div class="photo photo--wood"></div>
+          <span class="photo-frame__label"><svg class="icon" aria-hidden="true"><use href="#icon-camera"/></svg>Баня</span>
+        </div>
+      </div>
+      <div class="banya__text reveal">
+        <p class="kicker">Баня</p>
+        <h2>Если вечер к этому располагает</h2>
+        <p>Не обязательная программа, а то, что оказывается кстати — после долгого дня на воздухе или просто потому, что суббота.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. ЗАБОТА В ДЕТАЛЯХ ===================================================== -->
+  <section class="section section--tight" id="details">
+    <div class="container">
+      <div class="details-head reveal">
+        <div class="section-head" style="margin-bottom:0">
+          <p class="kicker">Детали</p>
+          <h2>Мы подумали о том, о чём обычно вспоминаешь уже после приезда</h2>
+        </div>
+        <span class="checked-badge">
+          <svg aria-hidden="true"><use href="#icon-check"/></svg>
+          Свой проверил
+        </span>
+      </div>
+
+      <ul class="details-grid reveal">
+        <li><svg aria-hidden="true"><use href="#icon-coffee"/></svg>Чай и кофе</li>
+        <li><svg aria-hidden="true"><use href="#icon-spice"/></svg>Специи и крупы</li>
+        <li><svg aria-hidden="true"><use href="#icon-dish"/></svg>Посуда и приборы</li>
+        <li><svg aria-hidden="true"><use href="#icon-dishwasher"/></svg>Посудомоечная машина</li>
+        <li><svg aria-hidden="true"><use href="#icon-towel"/></svg>Полотенца</li>
+        <li><svg aria-hidden="true"><use href="#icon-dryer"/></svg>Фен</li>
+        <li><svg aria-hidden="true"><use href="#icon-dish"/></svg>Шампунь и гель</li>
+        <li><svg aria-hidden="true"><use href="#icon-check"/></svg>Зубные щётки</li>
+        <li><svg aria-hidden="true"><use href="#icon-check"/></svg>Ватные диски и палочки</li>
+        <li><svg aria-hidden="true"><use href="#icon-dryer"/></svg>Ролик для одежды</li>
+        <li><svg aria-hidden="true"><use href="#icon-firstaid"/></svg>Аптечка</li>
+        <li><svg aria-hidden="true"><use href="#icon-flame"/></svg>Розжиг для мангала</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 9. ОТЗЫВЫ =============================================================== -->
+  <section class="section section--white" id="reviews">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="kicker">Отзывы</p>
         <h2>Что говорят гости</h2>
       </div>
-      <ul class="cards cards--reviews">
-        <li class="review reveal">
-          <p class="review__stars" aria-label="Оценка 5 из 5">★★★★★</p>
-          <blockquote>Снимали на день рождения, 10 человек. Баня была готова прямо к приезду, дом тёплый и очень чистый. Хозяева на связи, но не мешают. Уезжать не хотелось.</blockquote>
-          <p class="review__author">Мария, Екатеринбург</p>
-        </li>
-        <li class="review reveal">
-          <p class="review__stars" aria-label="Оценка 5 из 5">★★★★★</p>
-          <blockquote>Приезжали зимой с детьми. Тёплые полы, горка во дворе, чан вечером под снегом — дети в восторге, взрослые тоже. Дорогу почистили до самых ворот.</blockquote>
-          <p class="review__author">Сергей и Анна</p>
-        </li>
-        <li class="review reveal">
-          <p class="review__stars" aria-label="Оценка 5 из 5">★★★★★</p>
-          <blockquote>Брали дачу под корпоратив на 12 человек. Всё по описанию, без сюрпризов: посуды хватило на всех, беседка вместила всю компанию. Вернёмся летом.</blockquote>
-          <p class="review__author">Ольга, отдел продаж</p>
-        </li>
-      </ul>
-    </div>
-  </section>
-
-  <section class="section section--muted" id="location">
-    <div class="container location">
-      <div class="location__text reveal">
-        <p class="eyebrow">Как добраться</p>
-        <h2>30 км от центра Екатеринбурга</h2>
-        <p>
-          Дорога занимает около 40 минут на машине по асфальту, последние 500 метров — ровный
-          грейдер. Зимой подъезд чистим, доедет любая легковая машина.
-        </p>
-        <ul class="ticks">
-          <li>Точный адрес и точку на карте отправляем после подтверждения брони</li>
-          <li>Ближайший магазин — в 5 минутах езды</li>
-          <li>Можно доехать на такси, поездка из города — примерно 1 200 ₽</li>
-        </ul>
-        <p><a class="btn btn--outline" href="#" data-contact="map-link" rel="noopener">Открыть на карте</a></p>
-      </div>
-      <div class="location__map reveal">
-        <img src="assets/img/map.svg" alt="Схема проезда: дача в 30 км от Екатеринбурга" width="800" height="600" loading="lazy">
+      <div class="reviews-grid">
+        <figure class="review review--placeholder reveal">
+          <svg class="review__mark" aria-hidden="true"><use href="#icon-quote"/></svg>
+          <blockquote>[Здесь появится отзыв гостя]</blockquote>
+          <figcaption class="review__author">— Имя, месяц визита</figcaption>
+        </figure>
+        <figure class="review review--placeholder reveal">
+          <svg class="review__mark" aria-hidden="true"><use href="#icon-quote"/></svg>
+          <blockquote>[Здесь появится отзыв гостя]</blockquote>
+          <figcaption class="review__author">— Имя, месяц визита</figcaption>
+        </figure>
+        <figure class="review review--placeholder reveal">
+          <svg class="review__mark" aria-hidden="true"><use href="#icon-quote"/></svg>
+          <blockquote>[Здесь появится отзыв гостя]</blockquote>
+          <figcaption class="review__author">— Имя, месяц визита</figcaption>
+        </figure>
       </div>
     </div>
   </section>
 
-  <section class="section" id="faq">
+  <!-- 10. УСЛОВИЯ ============================================================= -->
+  <section class="section section--tight" id="terms">
     <div class="container container--narrow">
-      <div class="section__head reveal">
-        <p class="eyebrow">Вопросы</p>
-        <h2>Частые вопросы</h2>
+      <div class="section-head reveal">
+        <p class="kicker">Условия</p>
+        <h2>Коротко и по делу</h2>
       </div>
-      <div class="faq" id="faqList">
-        <details class="faq__item reveal">
-          <summary>Как забронировать дату?</summary>
-          <p>Оставьте заявку на сайте или напишите в WhatsApp — мы проверим свободные даты и вышлем реквизиты для предоплаты 30%. После оплаты дата закрепляется за вами.</p>
-        </details>
-        <details class="faq__item reveal">
-          <summary>Можно ли приехать с детьми или животными?</summary>
-          <p>Да. Для детей есть кроватка, стульчик и игровая зона. С питомцами тоже можно — доплата 500 ₽, просто предупредите заранее, чтобы мы подготовили дом.</p>
-        </details>
-        <details class="faq__item reveal">
-          <summary>Что нужно привезти с собой?</summary>
-          <p>Только продукты и личные вещи. Бельё, полотенца, посуда, дрова, веники и уголь уже на месте.</p>
-        </details>
-        <details class="faq__item reveal">
-          <summary>Можно ли шумно отмечать праздник?</summary>
-          <p>Соседей рядом нет, поэтому музыка и компания — не проблема. Просим только снижать громкость после 23:00 и не запускать фейерверки в лесной зоне.</p>
-        </details>
-        <details class="faq__item reveal">
-          <summary>Что с отменой брони?</summary>
-          <p>При отмене более чем за 7 дней возвращаем предоплату полностью, за 3–7 дней — 50%. Даты можно бесплатно перенести один раз, если предупредить за 5 дней.</p>
-        </details>
-        <details class="faq__item reveal">
-          <summary>Можно ли снять на несколько суток?</summary>
-          <p>Конечно, и это выгоднее: при бронировании от 3 суток делаем скидку 10%. На праздники минимальная бронь — 2 суток.</p>
-        </details>
-      </div>
+      <dl class="terms-list reveal">
+        <li>
+          <dt>Гости</dt>
+          <dd>До 6 человек: 4 взрослых + дети. Больше четырёх взрослых не принимаем.</dd>
+        </li>
+        <li>
+          <dt>Что включено</dt>
+          <dd>Бельё и полотенца, посуда и кухонная техника, Wi-Fi, кондиционер, баня, мангал (шампуры, решётка, розжиг).</dd>
+        </li>
+        <li>
+          <dt>Что взять с собой</dt>
+          <dd>Уголь для мангала — он не входит в комплект. Остальное уже на месте.</dd>
+        </li>
+        <li>
+          <dt>Правила проживания</dt>
+          <dd class="terms-note">Уточняются при подтверждении брони.</dd>
+        </li>
+        <li>
+          <dt>Бронирование</dt>
+          <dd class="terms-note">Условия предоплаты и отмены уточняются при подтверждении брони.</dd>
+        </li>
+      </dl>
     </div>
   </section>
 
+  <!-- 11. БРОНИРОВАНИЕ ======================================================== -->
   <section class="section booking" id="booking">
-    <div class="container container--narrow">
-      <div class="section__head section__head--center reveal">
-        <p class="eyebrow">Бронирование</p>
-        <h2>Проверим свободные даты</h2>
-        <p class="section__lead">
-          Заполните форму — ответим в мессенджере в течение 15 минут в рабочее время
-          и подскажем, свободна ли дата.
-        </p>
+    <div class="container">
+      <div class="booking-panel">
+        <div class="booking-panel__text reveal">
+          <p class="kicker">Бронирование</p>
+          <h2>Осталось только выбрать даты</h2>
+          <p>Оставьте заявку — ответим и подтвердим свободные даты.</p>
+          <div class="booking-panel__foot">
+            <a class="link-cta link-cta--on-dark" href="#" data-contact="whatsapp-link">
+              Задать вопрос
+              <svg class="icon" aria-hidden="true"><use href="#icon-arrow"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <form class="form reveal" id="bookingForm" novalidate>
+          <div class="form__row">
+            <label class="field">
+              <span class="field__label">Имя <em>*</em></span>
+              <input type="text" name="name" required autocomplete="name" placeholder="Как к вам обращаться">
+              <span class="field__error" data-error-for="name"></span>
+            </label>
+            <label class="field">
+              <span class="field__label">Телефон <em>*</em></span>
+              <input type="tel" name="phone" required autocomplete="tel" inputmode="tel" placeholder="+7 (___) ___-__-__">
+              <span class="field__error" data-error-for="phone"></span>
+            </label>
+          </div>
+          <div class="form__row">
+            <label class="field">
+              <span class="field__label">Заезд</span>
+              <input type="date" name="checkin">
+            </label>
+            <label class="field">
+              <span class="field__label">Выезд</span>
+              <input type="date" name="checkout">
+            </label>
+            <label class="field">
+              <span class="field__label">Гостей</span>
+              <input type="number" name="guests" min="1" max="6" step="1" placeholder="4" inputmode="numeric">
+            </label>
+          </div>
+          <label class="field">
+            <span class="field__label">Комментарий</span>
+            <textarea name="comment" rows="3" placeholder="Повод, пожелания, вопросы"></textarea>
+          </label>
+
+          <label class="check check--consent">
+            <input type="checkbox" name="consent" required>
+            <span>Согласен(на) на обработку персональных данных</span>
+          </label>
+          <span class="field__error" data-error-for="consent"></span>
+
+          <div class="form__actions">
+            <button class="btn btn--primary" type="submit">Забронировать</button>
+          </div>
+          <p class="form__status" id="formStatus" role="status" aria-live="polite"></p>
+        </form>
       </div>
-
-      <form class="form reveal" id="bookingForm" novalidate>
-        <div class="form__row">
-          <label class="field">
-            <span class="field__label">Имя <em aria-hidden="true">*</em></span>
-            <input type="text" name="name" required autocomplete="name" placeholder="Как к вам обращаться">
-            <span class="field__error" data-error-for="name"></span>
-          </label>
-          <label class="field">
-            <span class="field__label">Телефон <em aria-hidden="true">*</em></span>
-            <input type="tel" name="phone" required autocomplete="tel" inputmode="tel" placeholder="+7 (___) ___-__-__">
-            <span class="field__error" data-error-for="phone"></span>
-          </label>
-        </div>
-        <div class="form__row">
-          <label class="field">
-            <span class="field__label">Дата заезда</span>
-            <input type="date" name="checkin">
-          </label>
-          <label class="field">
-            <span class="field__label">Сколько суток</span>
-            <select name="nights">
-              <option value="1">1 сутки</option>
-              <option value="2">2 суток</option>
-              <option value="3">3 суток</option>
-              <option value="4+">4 и больше</option>
-            </select>
-          </label>
-          <label class="field">
-            <span class="field__label">Гостей</span>
-            <input type="number" name="guests" min="1" max="20" step="1" placeholder="8" inputmode="numeric">
-          </label>
-        </div>
-        <fieldset class="field field--checks">
-          <legend class="field__label">Что подготовить к приезду</legend>
-          <label class="check"><input type="checkbox" name="extras" value="Баня"><span>Баня</span></label>
-          <label class="check"><input type="checkbox" name="extras" value="Чан"><span>Чан</span></label>
-          <label class="check"><input type="checkbox" name="extras" value="Уголь и розжиг"><span>Уголь</span></label>
-          <label class="check"><input type="checkbox" name="extras" value="Приедем с детьми"><span>Дети</span></label>
-          <label class="check"><input type="checkbox" name="extras" value="Приедем с питомцем"><span>Питомец</span></label>
-        </fieldset>
-        <label class="field">
-          <span class="field__label">Комментарий</span>
-          <textarea name="comment" rows="3" placeholder="Повод, пожелания, вопросы"></textarea>
-        </label>
-
-        <label class="check check--consent">
-          <input type="checkbox" name="consent" required>
-          <span>Согласен(на) на обработку персональных данных</span>
-        </label>
-        <span class="field__error" data-error-for="consent"></span>
-
-        <div class="form__actions">
-          <button class="btn btn--primary btn--lg" type="submit">Отправить заявку</button>
-          <a class="btn btn--ghost btn--lg" href="#" data-contact="telegram-link">Написать в Telegram</a>
-        </div>
-        <p class="form__status" id="formStatus" role="status" aria-live="polite"></p>
-      </form>
     </div>
   </section>
 
 </main>
 
+<!-- 12. FOOTER ================================================================ -->
 <footer class="footer" id="contacts">
   <div class="container footer__inner">
     <div class="footer__col">
-      <a class="logo logo--light" href="#hero">
-        <svg class="logo__mark" width="34" height="34" viewBox="0 0 34 34" aria-hidden="true">
-          <path d="M17 4 4 15h3v14h8v-8h4v8h8V15h3L17 4Z" fill="currentColor"/>
-        </svg>
-        <span class="logo__text">Своя&nbsp;Дача<small>Екатеринбург</small></span>
+      <a class="logo" href="#hero">
+        <svg class="logo__mark icon" width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-mark"/></svg>
+        Своя Дача
       </a>
-      <p class="footer__about">
-        Аренда дачного дома с баней и чаном посуточно в 30 км от Екатеринбурга.
-        Для компаний до 12 человек.
-      </p>
+      <p class="footer__tagline">Всё уже есть. Осталось приехать.</p>
     </div>
 
     <div class="footer__col">
       <h3>Контакты</h3>
       <ul class="footer__list">
         <li><a href="tel:+79000000000" data-contact="phone-link"><span data-contact="phone-text">+7 (900) 000-00-00</span></a></li>
-        <li><a href="#" data-contact="whatsapp-link" rel="noopener">WhatsApp</a></li>
         <li><a href="#" data-contact="telegram-link" rel="noopener">Telegram</a></li>
-        <li><a href="#" data-contact="instagram-link" rel="noopener">Instagram</a></li>
-        <li><a href="#" data-contact="email-link"><span data-contact="email-text">hello@example.ru</span></a></li>
+        <li><a href="https://www.instagram.com/svoya.dacha.ekb/" rel="noopener" target="_blank">Instagram</a></li>
+        <li><a href="#" data-contact="email-link"><span data-contact="email-text">hello@svoyadacha-ekb.ru</span></a></li>
       </ul>
     </div>
 
     <div class="footer__col">
-      <h3>Адрес и время</h3>
-      <p data-contact="address">Свердловская область, 30 км от Екатеринбурга</p>
-      <p>Заезд 15:00 · выезд 12:00</p>
-      <p>На связи ежедневно 9:00–22:00</p>
-      <p><a href="#" data-contact="map-link" rel="noopener">Показать на карте</a></p>
+      <h3>Документы</h3>
+      <ul class="footer__list">
+        <li><a href="privacy.html">Политика конфиденциальности</a></li>
+        <li><a href="booking-terms.html">Условия бронирования</a></li>
+      </ul>
     </div>
   </div>
 
   <div class="container footer__bottom">
-    <p>© <span id="year">2026</span> Своя Дача. Все права защищены.</p>
-    <p><a href="privacy.html">Политика обработки персональных данных</a></p>
+    <p>© <span id="year">2026</span> Своя Дача</p>
+    <p data-contact="address">Свердловская область, пригород Екатеринбурга</p>
   </div>
 </footer>
 
-<a class="fab" href="#" data-contact="whatsapp-link" aria-label="Написать в WhatsApp" rel="noopener">
-  <svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">
-    <path d="M12 2a10 10 0 0 0-8.6 15.05L2 22l5.1-1.33A10 10 0 1 0 12 2Zm0 1.8a8.2 8.2 0 1 1-4.2 15.24l-.3-.18-3.03.79.81-2.95-.2-.31A8.2 8.2 0 0 1 12 3.8Zm-3.2 4c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1s.9 2.44 1.03 2.6c.13.18 1.76 2.8 4.33 3.82 2.14.84 2.58.67 3.04.63.46-.04 1.5-.61 1.71-1.2.21-.6.21-1.1.15-1.2-.06-.11-.23-.17-.48-.29-.25-.13-1.5-.74-1.73-.82-.23-.09-.4-.13-.57.12-.17.25-.65.82-.8.99-.14.16-.29.19-.54.06-.25-.12-1.07-.4-2.04-1.26-.75-.67-1.26-1.5-1.41-1.75-.15-.25-.02-.38.11-.5.11-.11.25-.29.38-.44.12-.15.16-.25.24-.42.08-.17.04-.31-.02-.44-.06-.12-.56-1.37-.77-1.87-.2-.48-.4-.42-.56-.43h-.48Z"/>
-  </svg>
-</a>
-
-<div class="lightbox" id="lightbox" hidden>
-  <button class="lightbox__close" type="button" aria-label="Закрыть">×</button>
-  <button class="lightbox__nav lightbox__nav--prev" type="button" aria-label="Предыдущее фото">‹</button>
-  <img class="lightbox__img" id="lightboxImg" src="" alt="">
-  <button class="lightbox__nav lightbox__nav--next" type="button" aria-label="Следующее фото">›</button>
+<div class="sticky-cta" id="stickyCta">
+  <div class="container sticky-cta__row">
+    <p class="sticky-cta__text">Осталось выбрать даты<small>Своя Дача</small></p>
+    <a class="btn btn--primary btn--sm" href="#booking">Забронировать</a>
+  </div>
 </div>
 
 <script type="application/ld+json">
@@ -471,23 +500,21 @@
   "@context": "https://schema.org",
   "@type": "LodgingBusiness",
   "name": "Своя Дача",
-  "description": "Аренда дачного дома с баней и чаном посуточно в 30 км от Екатеринбурга для компаний до 12 человек.",
+  "description": "Загородный дом на 60 м² в пригороде Екатеринбурга для спокойного отдыха. До 6 гостей, баня, мангал, костровая зона, закрытая территория.",
   "url": "https://svoyadacha-ekb.ru/",
   "telephone": "+7-900-000-00-00",
-  "priceRange": "12000-22000 RUB",
   "image": "https://svoyadacha-ekb.ru/assets/img/og-cover.svg",
   "address": {
     "@type": "PostalAddress",
-    "addressLocality": "Екатеринбург",
     "addressRegion": "Свердловская область",
     "addressCountry": "RU"
   },
   "amenityFeature": [
     { "@type": "LocationFeatureSpecification", "name": "Баня", "value": true },
-    { "@type": "LocationFeatureSpecification", "name": "Банный чан", "value": true },
-    { "@type": "LocationFeatureSpecification", "name": "Мангальная зона", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Мангал", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Костровая зона", "value": true },
     { "@type": "LocationFeatureSpecification", "name": "Wi-Fi", "value": true },
-    { "@type": "LocationFeatureSpecification", "name": "Парковка", "value": true }
+    { "@type": "LocationFeatureSpecification", "name": "Закрытая территория", "value": true }
   ],
   "sameAs": ["https://www.instagram.com/svoya.dacha.ekb/"]
 }
